@@ -249,7 +249,7 @@ blockquote {
     background: #111111;
     border-radius: var(--radius);
     box-shadow: var(--shadow);
-    margin: 1rem 0;
+    margin: 0.5rem 0;
     position: relative;
     transition: var(--transition);
     color: var(--light);
@@ -264,7 +264,7 @@ blockquote {
 .tech-list li::before {
     content: "✔";
     position: absolute;
-    left: 1rem;
+    left: 0.5rem;
     color: var(--secondary);
     font-weight: bold;
 }
@@ -286,9 +286,9 @@ blockquote {
     transform: translateY(-50%);
     background: var(--alert);
     color: white;
-    font-size: 0.9rem;
-    width: 2rem;
-    height: 2rem;
+    font-size: 0.5rem;
+    width: 1rem;
+    height: 1rem;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -441,8 +441,8 @@ blockquote {
     background-color: #25d366;
     color: white;
     border-radius: 50%;
-    width: 60px;
-    height: 60px;
+    width: 10px;
+    height: 10px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
     display: flex;
     align-items: center;
