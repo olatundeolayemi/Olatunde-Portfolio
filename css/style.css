@@ -51,7 +51,6 @@ a:hover {
 }
 
 /* NAVBAR */
-/* ===== NAVBAR ===== */
 .navbar {
     background: var(--glass);
     backdrop-filter: blur(15px);
@@ -66,59 +65,53 @@ a:hover {
     border-radius: 0 0 var(--radius) var(--radius);
     box-shadow: var(--shadow);
     animation: slideDown 0.5s ease-in-out;
-  }
-  
-  @keyframes slideDown {
-    0% {
-      transform: translateY(-100%);
-    }
-    100% {
-      transform: translateY(0);
-    }
-  }
-  
-  .navbar-inner {
+}
+
+@keyframes slideDown {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(0); }
+}
+
+.navbar-inner {
     display: flex;
     justify-content: space-between;
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
     width: 100%;
-  }
-  
-  .logo {
+}
+
+.logo {
     font-weight: 900;
     font-size: 2rem;
     color: var(--highlight);
     text-decoration: none;
     transition: color var(--transition);
-  }
-  
-  .logo:hover {
+}
+
+.logo:hover {
     color: var(--secondary);
-  }
-  
-  .nav-links {
+}
+
+.nav-links {
     list-style: none;
     display: flex;
     gap: 2rem;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .nav-links li a {
+}
+
+.nav-links li a {
     text-decoration: none;
     color: var(--light);
     font-weight: 600;
     position: relative;
     transition: color var(--transition);
-  }
-  
-  .nav-links li a:hover {
+}
+
+.nav-links li a:hover {
     color: var(--secondary);
-  }
-  
-  .nav-links li a::after {
+}
+
+.nav-links li a::after {
     content: '';
     position: absolute;
     bottom: -6px;
@@ -128,11 +121,11 @@ a:hover {
     background: var(--primary);
     transition: width 0.4s ease;
     border-radius: 10px;
-  }
-  
-  .nav-links li a:hover::after {
+}
+
+.nav-links li a:hover::after {
     width: 100%;
-  }
+}
 
 /* BLOG LISTING */
 .blog-listing {
@@ -146,7 +139,6 @@ a:hover {
     font-size: 3rem;
     color: var(--light);
     font-weight: 800;
-    position: relative;
 }
 
 .blog-listing h1::after {
@@ -186,7 +178,6 @@ a:hover {
     font-size: 0.9rem;
     color: var(--neutral);
     margin-bottom: 1rem;
-    display: block;
 }
 
 .blog-preview p {
@@ -299,17 +290,16 @@ blockquote {
 /* ABOUT SECTION */
 .skills-list {
     list-style: none;
-    padding-left: 0;
-    display: flex; /* Change to flex to make the list horizontal */
-    flex-wrap: wrap; /* Allow wrapping when space is limited */
-    gap: 1.5rem; /* Adds spacing between items */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
 }
 
 .skills-list li {
     font-size: 1.2rem;
     color: var(--neutral);
-    margin-bottom: 0; /* Remove bottom margin to avoid spacing issues */
 }
+
 .about-section {
     background: var(--dark);
     padding: 5rem 0;
@@ -334,7 +324,6 @@ blockquote {
     max-width: 100%;
     border-radius: 50%;
     object-fit: cover;
-    height: auto;
     box-shadow: 0 10px 40px rgba(0, 255, 255, 0.2);
     transition: transform 0.3s ease-in-out;
 }
@@ -382,17 +371,6 @@ blockquote {
     margin-bottom: 1rem;
 }
 
-.skills-list {
-    list-style: none;
-    padding-left: 0;
-}
-
-.skills-list li {
-    font-size: 1.2rem;
-    color: var(--neutral);
-    margin-bottom: 0.8rem;
-}
-
 /* CONTACT ME SECTION */
 .contact-me {
     background: var(--bg);
@@ -417,94 +395,35 @@ blockquote {
     margin-bottom: 2rem;
 }
 
-.contact-me a {
-    display: inline-block;
-    padding: 1rem 2rem;
+.contact-me form input,
+.contact-me form textarea {
+    width: 100%;
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: var(--radius);
+    border: 1px solid var(--neutral);
+    background: #111111;
+    color: var(--light);
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.contact-me form input:focus,
+.contact-me form textarea:focus {
+    border-color: var(--primary);
+}
+
+.contact-me button {
     background: var(--primary);
     color: var(--dark);
-    font-weight: bold;
+    padding: 1rem 2rem;
+    border: none;
     border-radius: var(--radius);
-    transition: var(--transition);
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease;
 }
 
-.contact-me a:hover {
+.contact-me button:hover {
     background: var(--secondary);
-    color: var(--dark);
-}
-
-/* WHATSAPP ICON */
-.whatsapp-float {
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-    z-index: 1000;
-    background-color: #25d366;
-    color: white;
-    border-radius: 30%;
-    width: 10px;
-    height: 10px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 10px;
-    transition: var(--transition);
-}
-
-.whatsapp-float:hover {
-    background-color: #1ebc59;
-    transform: scale(1.1);
-}
-
-/* RESPONSIVE */
-@media (max-width: 1024px) {
-    .profile-img {
-        flex: 1 1 40%;
-    }
-
-    .bio {
-        flex: 1 1 50%;
-    }
-
-    .bio h1 {
-        font-size: 2rem;
-    }
-
-    .bio p {
-        font-size: 1.1rem;
-    }
-
-    .skills h2 {
-        font-size: 1.5rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .about-grid {
-        flex-direction: column;
-        text-align: center;
-        gap: 2rem;
-    }
-
-    .profile-img {
-        flex: 1 1 60%;
-        max-width: 200px;
-        margin: 0 auto;
-    }
-
-    .bio {
-        flex: 1 1 100%;
-    }
-
-    .bio h1 {
-        font-size: 1.8rem;
-    }
-
-    .skills h2 {
-        font-size: 1.5rem;
-    }
-
-    .skills-list li {
-        font-size: 1.1rem;
-    }
 }
