@@ -443,129 +443,45 @@ blockquote {
     margin-bottom: 2rem;
 }
 
-.contact-me form input,
-.contact-me form textarea {
-    width: 100%;
+.contact-me a {
+    color: var(--primary);
+    font-weight: 700;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-me a:hover {
+    color: var(--secondary);
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.contact-form input,
+.contact-form textarea {
     padding: 1rem;
-    margin: 1rem 0;
-    border-radius: var(--radius);
-    border: 1px solid var(--neutral);
-    background: #111111;
-    color: var(--light);
     font-size: 1rem;
-    transition: border-color 0.3s ease;
+    border: 1px solid var(--neutral);
+    background: var(--bg);
+    color: var(--light);
+    border-radius: var(--radius);
+    resize: none;
 }
 
-.contact-me form input:focus,
-.contact-me form textarea:focus {
-    border-color: var(--primary);
-}
-
-.contact-me button {
+.contact-form button {
+    padding: 1rem;
+    font-size: 1.2rem;
     background: var(--primary);
     color: var(--dark);
-    padding: 1rem 2rem;
     border: none;
     border-radius: var(--radius);
     cursor: pointer;
-    font-weight: bold;
     transition: background 0.3s ease;
 }
 
-.contact-me button:hover {
+.contact-form button:hover {
     background: var(--secondary);
-}
-
-/* ===================================
-   Icons and Social Links
-=================================== */
-.footer .social-links img,
-.social-links a:hover img {
-    transition: transform 0.3s ease;
-}
-
-.footer .social-links img {
-    width: 25px;
-    height: 25px;
-    object-fit: contain;
-    margin: 0 10px;
-}
-
-.social-links a:hover img {
-    transform: scale(1.2);
-}
-
-.contact-links img {
-    width: 20px;
-    height: 20px;
-    vertical-align: middle;
-    margin-right: 8px;
-    filter: brightness(0) invert(1);
-}
-.floating-back-btn {
-    position: fixed;
-    bottom: 2rem;
-    left: 2rem;
-    width: 3.2rem;
-    height: 3.2rem;
-    background-color: #007bff;
-    color: #fff;
-    border-radius: 50%;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2rem;
-    text-decoration: none;
-    z-index: 1000;
-    transition: background-color 0.3s ease;
-  }
-
-  .floating-back-btn:hover {
-    background-color: #0056b3;
-  }
-  .floating-back-btn {
-    position: fixed;
-    bottom: 2rem;
-    left: 2rem;
-    width: 3.2rem;
-    height: 3.2rem;
-    background-color: #007bff;
-    color: #fff;
-    border-radius: 50%;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2rem;
-    text-decoration: none;
-    z-index: 1000;
-    transition: background-color 0.3s ease;
-  }
-
-  .floating-back-btn:hover {
-    background-color: #0056b3;
-  }
-  /* Floating Back Button Styling */
-.floating-back-btn {
-    position: fixed;
-    bottom: 2rem;
-    left: 2rem;
-    width: 3.2rem;
-    height: 3.2rem;
-    background-color: #007bff;
-    color: #fff;
-    border-radius: 50%;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2rem;
-    text-decoration: none;
-    z-index: 1000;
-    transition: background-color 0.3s ease;
-}
-
-.floating-back-btn:hover {
-    background-color: #0056b3;
 }

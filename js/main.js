@@ -1,4 +1,3 @@
-// js/main.js
 document.addEventListener('DOMContentLoaded', () => {
     // Mobile Navigation
     const hamburger = document.querySelector('.hamburger');
@@ -49,36 +48,21 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // main.js
-document.getElementById('backToBlog').addEventListener('click', function (e) {
-    e.preventDefault();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    setTimeout(() => {
-      window.location.href = this.href;
-    }, 300); // Adjust delay as needed
-  });
+    // Back to Blog Button Smooth Scroll
+    const backToBlogButton = document.getElementById('backToBlog');
+    if (backToBlogButton) {
+        backToBlogButton.addEventListener('click', function (e) {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            setTimeout(() => {
+                window.location.href = this.href;
+            }, 300); // Adjust delay as needed
+        });
+    }
 
-  // main.js
-document.getElementById('backToBlog').addEventListener('click', function (e) {
-    e.preventDefault();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    setTimeout(() => {
-      window.location.href = this.href;
-    }, 300); // Adjust delay as needed
-  });
-  
-  // main.js
-document.getElementById('backToBlog').addEventListener('click', function (e) {
-    e.preventDefault();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    setTimeout(() => {
-      window.location.href = this.href;
-    }, 300); // Adjust delay as needed
-  });
-  
     // Lazy Load Images
     const lazyImages = document.querySelectorAll('img[loading="lazy"]');
-    
+
     const lazyLoad = (img) => {
         img.src = img.dataset.src;
         img.removeAttribute('data-src');
@@ -103,7 +87,7 @@ document.getElementById('backToBlog').addEventListener('click', function (e) {
 
     // Add smooth scroll behavior for manual scrolling
     let isScrolling = false;
-    
+
     window.addEventListener('scroll', () => {
         if (!isScrolling) {
             window.requestAnimationFrame(() => {
