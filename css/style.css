@@ -21,7 +21,7 @@
 }
 
 body {
-    font-family: 'Poppins', 'Segoe UI', sans-serif;
+    font-family: 'Dancing Script', cursive; /* Changed to cursive font */
     background: var(--dark);
     color: var(--light);
     line-height: 1.7;
@@ -426,4 +426,27 @@ blockquote {
 
 .contact-me button:hover {
     background: var(--secondary);
+}
+
+/* Footer Social Icons */
+.footer .social-links img {
+    width: 25px;
+    height: 25px;
+    object-fit: contain;
+    margin: 0 10px;
+    transition: transform 0.3s ease;
+}
+
+/* Contact Section Icons */
+.contact-links img {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    margin-right: 8px;
+    filter: brightness(0) invert(1);
+}
+
+/* Optional Hover Effects */
+.social-links a:hover img {
+    transform: scale(1.2);
 }
