@@ -368,8 +368,7 @@ blockquote {
 .profile-img {
     flex: 1 1 30%;
     text-align: center;
-    padding: 1rem;position: relative; /* This allows the image to be positioned relative to its container */
-    top: 0; /* Shifts the image to the top */
+    padding: 1rem;
 }
 
 .profile-img img {
