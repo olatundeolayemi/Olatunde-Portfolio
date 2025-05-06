@@ -355,6 +355,8 @@ blockquote {
     background: var(--dark);
     padding: 5rem 0;
     color: var(--light);
+    margin-left: 0; /* Remove any left margin */
+    padding-left: 0; /* Remove any left padding */
 }
 
 .about-grid {
@@ -389,6 +391,8 @@ blockquote {
     flex: 1 1 60%;
     text-align: left;
     line-height: 1.8;
+    padding-left: 0; /* Remove padding on the left */
+    margin-left: 0; /* Remove margin on the left */
 }
 
 .bio h1 {
