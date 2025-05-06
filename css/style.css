@@ -355,14 +355,12 @@ blockquote {
     background: var(--dark);
     padding: 5rem 0;
     color: var(--light);
-    margin-left: 0; /* Remove any left margin */
-    padding-left: 0; /* Remove any left padding */
 }
 
 .about-grid {
     display: flex;
     flex-wrap: wrap;
-    gap: 0rem;
+    gap: 3rem;
     justify-content: center;
     align-items: center;
 }
@@ -372,7 +370,6 @@ blockquote {
     text-align: center;
     padding: 1rem;position: relative; /* This allows the image to be positioned relative to its container */
     top: 0; /* Shifts the image to the top */
-    padding-bottom: 5rem;
 }
 
 .profile-img img {
@@ -388,11 +385,9 @@ blockquote {
 }
 
 .bio {
-    flex: 1 1 100%;
+    flex: 1 1 60%;
     text-align: left;
     line-height: 1.8;
-    padding-left: 0; /* Remove padding on the left */
-    margin-left: 0; /* Remove margin on the left */
 }
 
 .bio h1 {
