@@ -82,6 +82,23 @@ a:hover,
     background-color: var(--secondary);
 }
 
+/* Small circular social/media icons */
+.contact-links img,
+.social-links img {
+    width: 24px;     /* drastically reduced size */
+    height: 24px;
+    border-radius: 50%; /* makes the images perfectly circular */
+    object-fit: cover;
+    margin-right: 8px;  /* small spacing next to text if applicable */
+    box-shadow: 0 2px 8px rgba(0, 255, 255, 0.2); /* optional glow */
+    transition: transform 0.2s ease;
+}
+
+.contact-links img:hover,
+.social-links img:hover {
+    transform: scale(1.1); /* subtle hover effect */
+}
+
 /* ===================================
    Layout Helpers
 =================================== */
@@ -457,31 +474,73 @@ blockquote {
 .contact-form {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1rem;
 }
 
 .contact-form input,
 .contact-form textarea {
     padding: 1rem;
-    font-size: 1rem;
-    border: 1px solid var(--neutral);
     background: var(--bg);
-    color: var(--light);
-    border-radius: var(--radius);
-    resize: none;
-}
-
-.contact-form button {
-    padding: 1rem;
-    font-size: 1.2rem;
-    background: var(--primary);
-    color: var(--dark);
     border: none;
     border-radius: var(--radius);
-    cursor: pointer;
-    transition: background 0.3s ease;
+    box-shadow: var(--shadow);
+    color: var(--light);
+    transition: box-shadow 0.3s ease;
 }
 
-.contact-form button:hover {
-    background: var(--secondary);
+.contact-form input:focus,
+.contact-form textarea:focus {
+    box-shadow: 0 2px 10px rgba(0, 255, 255, 0.2);
+    outline: none;
+}
+
+/* ===================================
+   Media Queries for Responsiveness
+=================================== */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .navbar-toggle {
+        display: block;
+    }
+
+    .blog-preview {
+        margin-bottom: 1.5rem;
+    }
+
+    .bio {
+        flex: 1 1 100%;
+    }
+
+    .profile-img {
+        flex: 1 1 100%;
+        margin-bottom: 1.5rem;
+    }
+
+    .container {
+        padding: 0 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .blog-preview h2 {
+        font-size: 1.8rem;
+    }
+
+    .cta {
+        font-size: 1.2rem;
+        padding: 0.4rem 0.8rem;
+    }
+
+    .contact-links img,
+    .social-links img {
+        width: 20px;
+        height: 20px;
+    }
 }
