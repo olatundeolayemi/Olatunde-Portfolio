@@ -1,3 +1,6 @@
+/* ===================================
+   Root Variables
+=================================== */
 :root {
     --primary: #00FFFF; /* electric blue */
     --secondary: #39ff14; /* neon green */
@@ -14,6 +17,9 @@
     --transition: all 0.3s ease;
 }
 
+/* ===================================
+   Global Base Styles
+=================================== */
 * {
     margin: 0;
     padding: 0;
@@ -21,36 +27,73 @@
 }
 
 body {
-    font-family: 'Dancing Script', cursive; /* Changed to cursive font */
+    font-family: 'Inter', 'Poppins', sans-serif;
     background: var(--dark);
     color: var(--light);
     line-height: 1.7;
     min-height: 100vh;
     overflow-x: hidden;
     scroll-behavior: smooth;
+    font-weight: 400;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', 'Orbitron', sans-serif;
+    font-weight: 700;
+    color: var(--light);
 }
 
 main {
     padding-top: 100px;
 }
 
+/* ===================================
+   Typography and Links
+=================================== */
+a, strong, b, .accent-text, .cta {
+    font-weight: 700;
+    color: var(--primary);
+}
+
 a {
     text-decoration: none;
-    color: var(--primary);
     transition: color var(--transition);
 }
 
-a:hover {
+a:hover,
+.cta:hover {
     color: var(--secondary);
 }
 
+.accent-text {
+    font-weight: 700;
+}
+
+.cta {
+    font-weight: 800;
+    background-color: var(--primary);
+    color: var(--dark);
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius);
+    transition: background 0.3s ease;
+}
+
+.cta:hover {
+    background-color: var(--secondary);
+}
+
+/* ===================================
+   Layout Helpers
+=================================== */
 .container {
     max-width: 1200px;
     margin: auto;
     padding: 0 1.5rem;
 }
 
-/* NAVBAR */
+/* ===================================
+   Navbar
+=================================== */
 .navbar {
     background: var(--glass);
     backdrop-filter: blur(15px);
@@ -85,7 +128,6 @@ a:hover {
     font-weight: 900;
     font-size: 2rem;
     color: var(--highlight);
-    text-decoration: none;
     transition: color var(--transition);
 }
 
@@ -127,7 +169,9 @@ a:hover {
     width: 100%;
 }
 
-/* BLOG LISTING */
+/* ===================================
+   Blog Listing Page
+=================================== */
 .blog-listing {
     padding: 6rem 0;
     background: linear-gradient(to bottom, #000000, #111111);
@@ -137,8 +181,8 @@ a:hover {
     text-align: center;
     margin-bottom: 4rem;
     font-size: 3rem;
-    color: var(--light);
     font-weight: 800;
+    color: var(--light);
 }
 
 .blog-listing h1::after {
@@ -151,7 +195,7 @@ a:hover {
     border-radius: 4px;
 }
 
-/* BLOG CARD */
+/* Blog Card */
 .blog-preview {
     background: var(--bg);
     backdrop-filter: blur(10px);
@@ -169,23 +213,19 @@ a:hover {
 
 .blog-preview h2 {
     font-size: 2rem;
-    color: var(--light);
     margin-bottom: 0.5rem;
     font-weight: 700;
+    color: var(--light);
 }
 
-.blog-preview time {
-    font-size: 0.9rem;
-    color: var(--neutral);
-    margin-bottom: 1rem;
-}
-
+.blog-preview time,
 .blog-preview p {
     color: var(--neutral);
-    line-height: 1.8;
 }
 
-/* SINGLE BLOG */
+/* ===================================
+   Blog Post Page
+=================================== */
 .blog-post {
     padding: 6rem 1.5rem;
     background: var(--dark);
@@ -204,8 +244,8 @@ a:hover {
 }
 
 .post-header time {
-    color: var(--neutral);
     font-size: 1rem;
+    color: var(--neutral);
 }
 
 .post-content {
@@ -222,7 +262,9 @@ a:hover {
     box-shadow: var(--shadow);
 }
 
-/* QUOTE */
+/* ===================================
+   Quote Block
+=================================== */
 blockquote {
     border-left: 4px solid var(--creative);
     padding: 1rem 2rem;
@@ -233,7 +275,9 @@ blockquote {
     color: var(--neutral);
 }
 
-/* TECH & STEPS LIST */
+/* ===================================
+   Lists
+=================================== */
 .tech-list li,
 .step-list li {
     padding: 1.25rem 1.5rem;
@@ -242,8 +286,8 @@ blockquote {
     box-shadow: var(--shadow);
     margin: 0.5rem 0;
     position: relative;
-    transition: var(--transition);
     color: var(--light);
+    transition: var(--transition);
 }
 
 .tech-list li:hover,
@@ -287,19 +331,9 @@ blockquote {
     font-weight: bold;
 }
 
-/* ABOUT SECTION */
-.skills-list {
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-}
-
-.skills-list li {
-    font-size: 1.2rem;
-    color: var(--neutral);
-}
-
+/* ===================================
+   About Section
+=================================== */
 .about-section {
     background: var(--dark);
     padding: 5rem 0;
@@ -371,7 +405,21 @@ blockquote {
     margin-bottom: 1rem;
 }
 
-/* CONTACT ME SECTION */
+.skills-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.skills-list li {
+    font-size: 1.2rem;
+    color: var(--neutral);
+}
+
+/* ===================================
+   Contact Section
+=================================== */
 .contact-me {
     background: var(--bg);
     backdrop-filter: blur(10px);
@@ -428,16 +476,25 @@ blockquote {
     background: var(--secondary);
 }
 
-/* Footer Social Icons */
+/* ===================================
+   Icons and Social Links
+=================================== */
+.footer .social-links img,
+.social-links a:hover img {
+    transition: transform 0.3s ease;
+}
+
 .footer .social-links img {
     width: 25px;
     height: 25px;
     object-fit: contain;
     margin: 0 10px;
-    transition: transform 0.3s ease;
 }
 
-/* Contact Section Icons */
+.social-links a:hover img {
+    transform: scale(1.2);
+}
+
 .contact-links img {
     width: 20px;
     height: 20px;
@@ -445,8 +502,70 @@ blockquote {
     margin-right: 8px;
     filter: brightness(0) invert(1);
 }
+.floating-back-btn {
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+    width: 3.2rem;
+    height: 3.2rem;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    text-decoration: none;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+  }
 
-/* Optional Hover Effects */
-.social-links a:hover img {
-    transform: scale(1.2);
+  .floating-back-btn:hover {
+    background-color: #0056b3;
+  }
+  .floating-back-btn {
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+    width: 3.2rem;
+    height: 3.2rem;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    text-decoration: none;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+  }
+
+  .floating-back-btn:hover {
+    background-color: #0056b3;
+  }
+  /* Floating Back Button Styling */
+.floating-back-btn {
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+    width: 3.2rem;
+    height: 3.2rem;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    text-decoration: none;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+.floating-back-btn:hover {
+    background-color: #0056b3;
 }

@@ -49,6 +49,33 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // main.js
+document.getElementById('backToBlog').addEventListener('click', function (e) {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setTimeout(() => {
+      window.location.href = this.href;
+    }, 300); // Adjust delay as needed
+  });
+
+  // main.js
+document.getElementById('backToBlog').addEventListener('click', function (e) {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setTimeout(() => {
+      window.location.href = this.href;
+    }, 300); // Adjust delay as needed
+  });
+  
+  // main.js
+document.getElementById('backToBlog').addEventListener('click', function (e) {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setTimeout(() => {
+      window.location.href = this.href;
+    }, 300); // Adjust delay as needed
+  });
+  
     // Lazy Load Images
     const lazyImages = document.querySelectorAll('img[loading="lazy"]');
     
