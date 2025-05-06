@@ -388,7 +388,7 @@ blockquote {
 }
 
 .bio {
-    flex: 1 1 60%;
+    flex: 1 1 100%;
     text-align: left;
     line-height: 1.8;
     padding-left: 0; /* Remove padding on the left */
