@@ -1,388 +1,655 @@
 /* ===================================
-   Cyberpunk-Inspired Root Variables
+   Root Variables
 =================================== */
 :root {
-    /* Neon Fusion Color Palette */
-    --primary: #2563eb;       /* Cyber Azure */
-    --secondary: #059669;     /* Matrix Emerald */
-    --alert: #dc2626;         /* Plasma Red */
-    --highlight: #EA580C;     /* Neon Coral */
-    --creative: #7C3AED;      /* Hologram Purple */
-    --neutral: #4B5563;       /* Carbon Fiber */
-    --dark: #1f2937;         /* Void Black */
-    --light: #ffffff;        /* Pure Energy */
-    
-    /* Holographic Effects */
-    --hologram-1: linear-gradient(45deg, 
-        var(--primary) 0%, 
-        var(--creative) 50%, 
-        var(--secondary) 100%);
-    --hologram-2: linear-gradient(-45deg, 
-        var(--highlight) 0%, 
-        var(--alert) 50%, 
-        var(--primary) 100%);
-    
-    /* Advanced Functional Variables */
-    --bg: radial-gradient(circle at center, #f8fafc 0%, #e2e8f0 100%);
-    --glass: rgba(255, 255, 255, 0.95);
-    --shadow: 0 10px 40px rgba(37, 99, 235, 0.15);
-    --neon-shadow: 0 0 15px var(--primary),
-                  0 0 30px var(--creative),
-                  0 0 45px var(--secondary);
-    --radius: 24px;
-    --transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-    --cyber-border: 2px solid transparent;
-    --cyber-clip: polygon(0 0, 100% 0, 100% 75%, 95% 100%, 5% 100%, 0 75%);
+    --primary: #00FFFF; /* electric blue */
+    --secondary: #39ff14; /* neon green */
+    --alert: #ff4d4d; /* red for alerts or CTAs */
+    --highlight: #ffd700; /* gold */
+    --creative: #9b59b6; /* purple/magenta */
+    --neutral: #aaaaaa; /* light gray for secondary text */
+    --dark: #000000; /* black background */
+    --light: #ffffff; /* white text/icons */
+    --bg: rgba(255, 255, 255, 0.05); /* soft glassy black variant */
+    --glass: rgba(255, 255, 255, 0.1);
+    --shadow: 0 10px 40px rgba(0, 255, 255, 0.2);
+    --radius: 20px;
+    --transition: all 0.3s ease;
 }
 
 /* ===================================
-   Holographic Base Styles
+   Global Base Styles
 =================================== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    scroll-behavior: smooth;
-}
-
-html {
-    background: var(--bg);
-    min-height: 100vh;
 }
 
 body {
-    font-family: 'Inter', 'SF Pro Display', system-ui;
-    color: var(--dark);
-    line-height: 1.8;
+    font-family: 'Inter', 'Poppins', sans-serif;
+    background: var(--dark);
+    color: var(--light);
+    line-height: 1.7;
+    min-height: 100vh;
     overflow-x: hidden;
-    background-attachment: fixed;
-    font-weight: 450;
-    text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
+    font-weight: 400;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Orbitron', 'Montserrat', sans-serif;
+    font-family: 'Montserrat', 'Orbitron', sans-serif;
     font-weight: 700;
-    background: var(--hologram-1);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    letter-spacing: -0.03em;
+    color: var(--light);
+}
+
+main {
+    padding-top: 100px;
 }
 
 /* ===================================
-   Cybernetic Navigation
+   Typography and Links
+=================================== */
+a, strong, b, .accent-text, .cta {
+    font-weight: 700;
+    color: var(--primary);
+}
+
+a {
+    text-decoration: none;
+    transition: color var(--transition);
+}
+
+a:hover,
+.cta:hover {
+    color: var(--secondary);
+}
+
+.accent-text {
+    font-weight: 700;
+}
+
+.cta {
+    font-weight: 800;
+    background-color: var(--primary);
+    color: var(--dark);
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius);
+    transition: background 0.3s ease;
+}
+
+.cta:hover {
+    background-color: var(--secondary);
+}
+
+/* Small circular social/media icons */
+.contact-links img,
+.social-links img {
+    width: 24px;     /* drastically reduced size */
+    height: 24px;
+    border-radius: 50%; /* makes the images perfectly circular */
+    object-fit: cover;
+    margin-right: 8px;  /* small spacing next to text if applicable */
+    box-shadow: 0 2px 8px rgba(0, 255, 255, 0.2); /* optional glow */
+    transition: transform 0.2s ease;
+}
+
+.contact-links img:hover,
+.social-links img:hover {
+    transform: scale(1.1); /* subtle hover effect */
+}
+
+/* ===================================
+   Layout Helpers
+=================================== */
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 1.5rem;
+}
+
+/* ===================================
+   Navbar
 =================================== */
 .navbar {
     background: var(--glass);
-    backdrop-filter: blur(20px);
-    padding: 1.5rem 0;
-    position: fixed;
+    backdrop-filter: blur(15px);
+    color: var(--light);
+    padding: 1rem 2rem;
+    position: sticky;
     top: 0;
-    width: 100%;
-    z-index: 1000;
-    border-bottom: 3px solid;
-    border-image: var(--hologram-1) 1;
-    animation: cyberGlow 2s infinite alternate;
+    z-index: 999;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 0 0 var(--radius) var(--radius);
+    box-shadow: var(--shadow);
+    animation: slideDown 0.5s ease-in-out;
 }
 
-@keyframes cyberGlow {
-    from { box-shadow: var(--neon-shadow); }
-    to { box-shadow: 0 0 30px var(--primary); }
+@keyframes slideDown {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(0); }
+}
+
+.navbar-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
 }
 
 .logo {
     font-weight: 900;
-    font-size: 2.2rem;
-    position: relative;
-    display: inline-block;
-    transition: transform 0.3s var(--transition);
+    font-size: 2rem;
+    color: var(--highlight);
+    transition: color var(--transition);
 }
 
-.logo::after {
-    content: '';
-    position: absolute;
-    bottom: -8px;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background: var(--hologram-2);
+.logo:hover {
+    color: var(--secondary);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
 }
 
 .nav-links li a {
+    text-decoration: none;
+    color: var(--light);
+    font-weight: 600;
     position: relative;
-    padding: 0.8rem 1.2rem;
-    border-radius: 12px;
-    transition: all 0.4s var(--transition);
+    transition: color var(--transition);
 }
 
 .nav-links li a:hover {
-    background: var(--hologram-1);
-    color: var(--light) !important;
-    transform: skewX(-10deg);
+    color: var(--secondary);
+}
+
+.nav-links li a::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background: var(--primary);
+    transition: width 0.4s ease;
+    border-radius: 10px;
+}
+
+.nav-links li a:hover::after {
+    width: 100%;
 }
 
 /* ===================================
-   Holographic Blog Cards
+   Blog Listing Page
 =================================== */
-.blog-preview {
-    background: var(--glass);
-    border: 2px solid;
-    border-image: var(--hologram-2) 1;
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.4s var(--transition);
+.blog-listing {
+    padding: 6rem 0;
+    background: linear-gradient(to bottom, #000000, #111111);
 }
 
-.blog-preview::before {
+.blog-listing h1 {
+    text-align: center;
+    margin-bottom: 4rem;
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--light);
+}
+
+.blog-listing h1::after {
     content: '';
-    position: absolute;
-    inset: 0;
-    background: var(--hologram-1);
-    opacity: 0;
-    transition: opacity 0.4s;
-    mix-blend-mode: overlay;
+    width: 80px;
+    height: 4px;
+    background: var(--highlight);
+    display: block;
+    margin: 1rem auto 0;
+    border-radius: 4px;
+}
+
+/* Blog Card */
+.blog-preview {
+    background: var(--bg);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    margin-bottom: 2.5rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
 }
 
 .blog-preview:hover {
-    transform: perspective(1000px) rotateX(5deg) rotateY(5deg);
+    transform: scale(1.02);
+    box-shadow: 0 15px 35px rgba(0, 255, 255, 0.25);
 }
 
-.blog-preview:hover::before {
-    opacity: 0.3;
+.blog-preview h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    color: var(--light);
+}
+
+.blog-preview time,
+.blog-preview p {
+    color: var(--neutral);
 }
 
 /* ===================================
-   Cybernetic Profile Section
+   Blog Post Page
 =================================== */
-.profile-img {
+.blog-post {
+    padding: 6rem 1.5rem;
+    background: var(--dark);
+}
+
+.post-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.post-header h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    font-weight: 800;
+    color: var(--highlight);
+}
+
+.post-header time {
+    font-size: 1rem;
+    color: var(--neutral);
+}
+
+.post-content {
+    max-width: 850px;
+    margin: auto;
+}
+
+.content-section {
+    margin: 2rem 0;
+    padding: 2rem;
+    border-radius: var(--radius);
+    background: var(--bg);
+    backdrop-filter: blur(8px);
+    box-shadow: var(--shadow);
+}
+
+/* ===================================
+   Quote Block
+=================================== */
+blockquote {
+    border-left: 4px solid var(--creative);
+    padding: 1rem 2rem;
+    background: #1a1a1a;
+    font-style: italic;
+    margin: 2rem 0;
+    border-radius: 8px;
+    color: var(--neutral);
+}
+
+/* ===================================
+   Lists
+=================================== */
+.tech-list li,
+.step-list li {
+    padding: 1.25rem 1.5rem;
+    background: #111111;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin: 0.5rem 0;
     position: relative;
-    width: 320px;
-    height: 320px;
-    clip-path: var(--cyber-clip);
-    background: var(--hologram-1);
-    padding: 8px;
+    color: var(--light);
+    transition: var(--transition);
+}
+
+.tech-list li:hover,
+.step-list li:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(0, 255, 255, 0.25);
+}
+
+.tech-list li::before {
+    content: "✔";
+    position: absolute;
+    left: 0.5rem;
+    color: var(--secondary);
+    font-weight: bold;
+}
+
+.step-list {
+    counter-reset: step;
+}
+
+.step-list li {
+    counter-increment: step;
+    padding-left: 3.5rem;
+}
+
+.step-list li::before {
+    content: counter(step);
+    position: absolute;
+    top: 50%;
+    left: 1.25rem;
+    transform: translateY(-50%);
+    background: var(--alert);
+    color: white;
+    font-size: 0.5rem;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+/* ===================================
+   About Section
+=================================== */
+.about-section {
+    background: var(--dark);
+    padding: 5rem 0;
+    color: var(--light);
+}
+
+.about-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-img {
+    flex: 1 1 30%;
+    text-align: center;
+    padding: 1rem;
 }
 
 .profile-img img {
-    clip-path: var(--cyber-clip);
-    filter: grayscale(100%) contrast(120%);
-    transition: filter 0.4s var(--transition);
+    max-width: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 10px 40px rgba(0, 255, 255, 0.2);
+    transition: transform 0.3s ease-in-out;
 }
 
-.profile-img:hover img {
-    filter: none;
+.profile-img img:hover {
+    transform: scale(1.05);
 }
 
-/* ===================================
-   HUD Interface Skills
-=================================== */
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 2rem;
-    perspective: 1000px;
+.bio {
+    flex: 1 1 60%;
+    text-align: left;
+    line-height: 1.8;
 }
 
-.skill-category {
-    background: var(--glass);
-    padding: 2rem;
-    border-radius: var(--radius);
-    transform-style: preserve-3d;
-    transition: transform 0.4s var(--transition);
+.bio h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--highlight);
+    margin-bottom: 2rem;
 }
 
-.skill-category:hover {
-    transform: rotateY(10deg) rotateX(5deg) translateZ(20px);
+.bio p {
+    font-size: 1.2rem;
+    color: var(--neutral);
+    margin-bottom: 2rem;
 }
 
-.skill-list li {
-    position: relative;
-    padding-left: 2rem;
-    margin: 1rem 0;
+.bio a {
+    color: var(--primary);
+    transition: color 0.3s ease;
 }
 
-.skill-list li::before {
-    content: '▸';
-    position: absolute;
-    left: 0;
+.bio a:hover {
     color: var(--secondary);
-    font-weight: 900;
-    font-size: 1.4rem;
 }
 
+.skills {
+    margin-top: 3rem;
+}
+
+.skills h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--highlight);
+    margin-bottom: 1rem;
+}
+
+
+.skills-list {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+  }
+  
+  .category-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #1F2937;
+    margin-top: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .skills-list li {
+    font-size: 1rem;
+    color: #4B5563;
+    margin-left: 1.5rem;
+    line-height: 1.8;
+    transition: color 0.3s ease;
+  }
+  
+  .skills-list li:hover {
+    color: #3B82F6;
+  }
+  
+  /* Optional: Add space between each category */
+  .skills-list li.category-title + li {
+    margin-top: 0.5rem;
+  }
+  
+  /* Add subtle borders or lines between sections */
+  .skills-list li.category-title {
+    border-bottom: 2px solid #E5E7EB;
+    padding-bottom: 8px;
+  }
+  
+  /* For extra mobile responsiveness, tweak the layout */
+  @media (max-width: 768px) {
+    .skills-list {
+      padding-left: 1rem;
+    }
+  
+    .skills-list li {
+      font-size: 0.9rem;
+      margin-left: 1rem;
+    }
+  }
 /* ===================================
-   Cyber Contact Matrix
+   Contact Section
 =================================== */
 .contact-me {
-    background: var(--dark);
-    clip-path: var(--cyber-clip);
+    background: var(--bg);
+    backdrop-filter: blur(10px);
     padding: 4rem 2rem;
-    position: relative;
-    overflow: hidden;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    text-align: center;
+    margin: 5rem auto;
+    max-width: 700px;
 }
 
-.contact-me::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: repeating-linear-gradient(
-        45deg,
-        transparent 0%,
-        var(--primary) 2%,
-        transparent 5%
-    );
-    opacity: 0.1;
-    animation: matrixFlow 20s linear infinite;
+.contact-me h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--highlight);
 }
 
-@keyframes matrixFlow {
-    from { background-position: 0 0; }
-    to { background-position: 0 1000px; }
+.contact-me p {
+    font-size: 1.2rem;
+    color: var(--neutral);
+    margin-bottom: 2rem;
+}
+
+.contact-me a {
+    color: var(--primary);
+    font-weight: 700;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-me a:hover {
+    color: var(--secondary);
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
 .contact-form input,
 .contact-form textarea {
-    background: rgba(255, 255, 255, 0.1);
-    border: 2px solid var(--primary);
-    transition: all 0.4s var(--transition);
+    padding: 1rem;
+    background: var(--bg);
+    border: none;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    color: var(--light);
+    transition: box-shadow 0.3s ease;
 }
 
 .contact-form input:focus,
 .contact-form textarea:focus {
-    background: rgba(255, 255, 255, 0.2);
-    border-color: var(--creative);
-    box-shadow: var(--neon-shadow);
+    box-shadow: 0 2px 10px rgba(0, 255, 255, 0.2);
+    outline: none;
 }
 
 /* ===================================
-   Quantum Responsive Design
-=================================== */
-@media (max-width: 768px) {
-    .navbar {
-        padding: 1rem;
-        position: relative;
-    }
+ /* Small devices (phones, under 768px) */
+@media (max-width: 767px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+  }
 
-    .nav-links {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
+  .nav-links {
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    margin-top: 1rem;
+  }
 
-    .profile-img {
-        width: 240px;
-        height: 240px;
-    }
+  .nav-links li a {
+    font-size: 1rem;
+  }
 
-    .skills-grid {
-        grid-template-columns: 1fr;
-    }
+  .blog-listing h1 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
 
-    .blog-preview {
-        margin: 1rem;
-    }
+  .blog-preview h2 {
+    font-size: 1.5rem;
+  }
+
+  .post-header h1 {
+    font-size: 2rem;
+  }
+
+  .post-content {
+    padding: 1rem;
+  }
+
+  .content-section {
+    padding: 1rem;
+  }
+
+  .about-grid {
+    flex-direction: column;
+  }
+
+  .bio h1 {
+    font-size: 2rem;
+  }
+
+  .bio p {
+    font-size: 1rem;
+  }
+
+  .skills h2 {
+    font-size: 1.5rem;
+  }
+
+  .skills-list {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-me h2 {
+    font-size: 2rem;
+  }
+
+  .contact-me p {
+    font-size: 1rem;
+  }
+
+  .cta {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .profile-img {
+    flex: unset;
+    width: 70%;
+    margin: auto;
+  }
+
+  .step-list li {
+    padding-left: 2.5rem;
+  }
+
+  .step-list li::before {
+    left: 0.75rem;
+  }
 }
 
-@media (max-width: 480px) {
-    :root {
-        --radius: 16px;
-    }
+/* Medium devices (tablets, under 1024px) */
+@media (max-width: 1023px) {
+  .container {
+    padding: 0 1rem;
+  }
 
-    .logo {
-        font-size: 1.8rem;
-    }
+  .nav-links {
+    gap: 1.5rem;
+  }
 
-    .profile-img {
-        width: 200px;
-        height: 200px;
-    }
+  .bio {
+    text-align: center;
+  }
 
-    .contact-me {
-        padding: 2rem 1rem;
-        clip-path: polygon(0 0, 100% 0, 100% 90%, 95% 100%, 5% 100%, 0 90%);
-    }
-}
+  .skills-list {
+    justify-content: center;
+  }
 
-/* ===================================
-   Dark Mode Simulation
-=================================== */
-@media (prefers-color-scheme: dark) {
-    :root {
-        --bg: radial-gradient(circle at center, #1a1a1a 0%, #000 100%);
-        --dark: #e2e8f0;
-        --light: #1a1a1a;
-    }
+  .blog-listing,
+  .blog-post {
+    padding: 4rem 1rem;
+  }
 
-    body {
-        color: var(--dark);
-    }
+  .blog-preview {
+    padding: 1.5rem;
+  }
 
-    .skill-category {
-        background: rgba(0, 0, 0, 0.3);
-    }
-}
-
-/* ===================================
-   Cyberpunk Animations
-=================================== */
-@keyframes hologramFlicker {
-    0%, 100% { opacity: 0.95; }
-    25% { opacity: 0.8; }
-    50% { opacity: 0.9; }
-    75% { opacity: 0.85; }
-}
-
-@keyframes neonPulse {
-    0% { filter: drop-shadow(0 0 5px var(--primary)); }
-    50% { filter: drop-shadow(0 0 20px var(--creative)); }
-    100% { filter: drop-shadow(0 0 5px var(--primary)); }
-}
-
-/* ===================================
-   Interactive Elements
-=================================== */
-.cta {
-    position: relative;
-    background: none;
-    border: 2px solid;
-    border-image: var(--hologram-1) 1;
-    overflow: hidden;
-    transition: all 0.4s var(--transition);
-}
-
-.cta::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: var(--hologram-1);
-    opacity: 0;
-    transition: opacity 0.4s;
-    z-index: -1;
-}
-
-.cta:hover {
-    color: var(--light);
-    transform: scale(1.05);
-}
-
-.cta:hover::before {
-    opacity: 1;
-}
-
-/* ===================================
-   Cybernetic Enhancements
-=================================== */
-::selection {
-    background: var(--secondary);
-    color: var(--light);
-}
-
-::-webkit-scrollbar {
-    width: 12px;
-    background: var(--dark);
-}
-
-::-webkit-scrollbar-thumb {
-    background: var(--hologram-1);
-    border-radius: 6px;
+  .contact-me {
+    padding: 3rem 1rem;
+  }
 }
