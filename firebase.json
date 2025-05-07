@@ -4,7 +4,29 @@
     "ignore": [
       "firebase.json",
       "**/.*",
-      "**/node_modules/**"
+      "**/node_modules/**",
+      "package.json",
+      "package-lock.json",
+      "README.md",
+      ".env*",
+      "*.log"
+    ],
+    "headers": [
+      {
+        "source": "**/*.@(css|js|html)",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "max-age=0, no-cache, no-store, must-revalidate"
+          }
+        ]
+      }
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
     ]
   }
 }
