@@ -183,15 +183,15 @@ Enhanced Responsive Navbar Styles
     top: 0;
     left: 0;
     right: 0;
-    padding: 0.5rem 1rem;
-    background: #a0aec0;
+    padding: 1rem 2rem;
+    background: var(--glass);
     backdrop-filter: blur(15px);
     z-index: 1000;
   }
   
   .hamburger {
     display: none; /* Hidden by default */
-    background: #a0aec0;
+    background: none;
     border: none;
     cursor: pointer;
     padding: 0.5rem;
@@ -207,11 +207,10 @@ Enhanced Responsive Navbar Styles
   
   .nav-links {
     display: flex;
-    gap: 1rem;
+    gap: rem;
     list-style: none;
     margin: 0;
     padding: 0;
-    flex-direction: row;
   }
   
   /* Mobile Styles (up to 767px) */
@@ -227,7 +226,7 @@ Enhanced Responsive Navbar Styles
       right: 0;
       bottom: 0;
       flex-direction: row;
-      background: #a0aec0;
+      background: var(--bg);
       backdrop-filter: blur(20px);
       padding: 1rem;
       transform: translateX(-100%);
@@ -240,7 +239,7 @@ Enhanced Responsive Navbar Styles
     }
   
     .nav-links li a {
-      font-size: 1.05rem;
+      font-size: 1.25rem;
       padding: 1rem;
       display: block;
       border-radius: var(--radius);
@@ -283,16 +282,16 @@ Enhanced Responsive Navbar Styles
   /* Foldable Devices (330px and below) */
   @media (max-width: 330px) {
     .navbar {
-      padding: 0.50rem 0.5rem;
+      padding: 0.75rem 1rem;
     }
   
     .nav-links {
-      top: 50px; /* Adjusted for smaller navbar height */
+      top: 60px; /* Adjusted for smaller navbar height */
       padding: 1rem;
     }
   
     .nav-links li a {
-      font-size: 0.5rem;
+      font-size: 1.1rem;
       padding: 0.75rem;
     }
   }
