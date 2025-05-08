@@ -187,6 +187,146 @@ a:hover,
 }
 
 /* ===================================
+Enhanced Responsive Navbar Styles
+=================================== */
+/* Mobile-First Approach */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem 2rem;
+    background: var(--glass);
+    backdrop-filter: blur(15px);
+    z-index: 1000;
+  }
+  
+  .hamburger {
+    display: none; /* Hidden by default */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 1100;
+  }
+  
+  .hamburger svg {
+    width: 32px;
+    height: 32px;
+    stroke: var(--dark);
+    transition: transform 0.3s ease;
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Mobile Styles (up to 767px) */
+  @media (max-width: 767px) {
+    .hamburger {
+      display: block; /* Show hamburger on mobile */
+    }
+  
+    .nav-links {
+      position: fixed;
+      top: 70px; /* Height of navbar */
+      left: 0;
+      right: 0;
+      bottom: 0;
+      flex-direction: column;
+      background: var(--bg);
+      backdrop-filter: blur(20px);
+      padding: 2rem;
+      transform: translateX(-100%);
+      transition: transform 0.3s ease-in-out;
+      gap: 1.5rem;
+    }
+  
+    .nav-links.active {
+      transform: translateX(0);
+    }
+  
+    .nav-links li a {
+      font-size: 1.25rem;
+      padding: 1rem;
+      display: block;
+      border-radius: var(--radius);
+      transition: background 0.3s ease;
+    }
+  
+    .nav-links li a:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+  }
+  
+  /* Tablet Styles (768px - 1024px) */
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .navbar {
+      padding: 1rem 1.5rem;
+    }
+  
+    .nav-links {
+      gap: 1.5rem;
+    }
+  
+    .nav-links li a {
+      font-size: 0.95rem;
+      padding: 0.75rem 1rem;
+    }
+  }
+  
+  /* Desktop Styles (1025px+) */
+  @media (min-width: 1025px) {
+    .nav-links {
+      gap: 2.5rem;
+    }
+  
+    .nav-links li a {
+      font-size: 1.1rem;
+      padding: 1rem 1.25rem;
+    }
+  }
+  
+  /* Foldable Devices (330px and below) */
+  @media (max-width: 330px) {
+    .navbar {
+      padding: 0.75rem 1rem;
+    }
+  
+    .nav-links {
+      top: 60px; /* Adjusted for smaller navbar height */
+      padding: 1rem;
+    }
+  
+    .nav-links li a {
+      font-size: 1.1rem;
+      padding: 0.75rem;
+    }
+  }
+  
+  /* Landscape Orientation Handling */
+  @media (max-height: 500px) and (orientation: landscape) {
+    .nav-links {
+      top: 60px;
+      padding: 1rem;
+      overflow-y: auto;
+      max-height: calc(100vh - 60px);
+    }
+  }
+
+  .nav-links li a::after {
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .nav-links {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+/* ===================================
    Blog Listing Page
 =================================== */
 .blog-listing {
