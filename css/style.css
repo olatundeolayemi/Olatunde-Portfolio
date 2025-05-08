@@ -207,10 +207,11 @@ Enhanced Responsive Navbar Styles
   
   .nav-links {
     display: flex;
-    gap: 2rem;
+    gap: 1rem;
     list-style: none;
     margin: 0;
     padding: 0;
+    flex-direction: row;
   }
   
   /* Mobile Styles (up to 767px) */
@@ -225,10 +226,10 @@ Enhanced Responsive Navbar Styles
       left: 0;
       right: 0;
       bottom: 0;
-      flex-direction: column;
+      flex-direction: row;
       background: var(--bg);
       backdrop-filter: blur(20px);
-      padding: 2rem;
+      padding: 1rem;
       transform: translateX(-100%);
       transition: transform 0.3s ease-in-out;
       gap: 1.5rem;
@@ -239,7 +240,7 @@ Enhanced Responsive Navbar Styles
     }
   
     .nav-links li a {
-      font-size: 1.25rem;
+      font-size: 1.05rem;
       padding: 1rem;
       display: block;
       border-radius: var(--radius);
@@ -352,14 +353,6 @@ Enhanced Responsive Navbar Styles
     box-shadow: var(--shadow);
     transition: var(--transition);
 }
-
-.blog-thumbnail {
-    width: 100%;
-    height: 200px;
-    border-radius: var(--radius);
-    object-fit: cover;
-    margin-bottom: 1.5rem;
-  }
 
 .blog-preview:hover {
     transform: scale(1.02);
@@ -649,7 +642,7 @@ blockquote {
 
 .contact-form {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 1rem;
 }
 
@@ -674,13 +667,14 @@ blockquote {
  /* Small devices (phones, under 768px) */
 @media (max-width: 767px) {
   .navbar {
-    flex-direction: column;
+    flex-direction: row;
     align-items: flex-start;
     padding: 1rem;
+    
   }
 
   .nav-links {
-    flex-direction: column;
+    flex-direction: row ;
     gap: 1rem;
     width: 100%;
     margin-top: 1rem;
@@ -712,7 +706,7 @@ blockquote {
   }
 
   .about-grid {
-    flex-direction: column;
+    flex-direction: row;
   }
 
   .bio h1 {
@@ -728,7 +722,7 @@ blockquote {
   }
 
   .skills-list {
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
   }
 
