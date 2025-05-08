@@ -184,14 +184,14 @@ Enhanced Responsive Navbar Styles
     left: 0;
     right: 0;
     padding: 1rem 2rem;
-    background: var(--glass);
+    background: #a0aec0;
     backdrop-filter: blur(15px);
     z-index: 1000;
   }
   
   .hamburger {
     display: none; /* Hidden by default */
-    background: none;
+    background: #a0aec0;
     border: none;
     cursor: pointer;
     padding: 0.5rem;
@@ -227,7 +227,7 @@ Enhanced Responsive Navbar Styles
       right: 0;
       bottom: 0;
       flex-direction: row;
-      background: var(--bg);
+      background: #a0aec0;
       backdrop-filter: blur(20px);
       padding: 1rem;
       transform: translateX(-100%);
